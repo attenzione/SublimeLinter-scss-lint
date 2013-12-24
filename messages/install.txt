@@ -1,0 +1,10 @@
+SublimeLinter-scss
+-------------------------------
+This linter plugin for SublimeLinter provides an interface to scss-lint.
+
+INSTALLATION
+------------
+Before this plugin will activate, you *must* follow the installation
+instructions here:
+
+https://github.com/attenzione/SublimeLinter-scss
