@@ -8,7 +8,7 @@
 # License: MIT
 #
 
-"""This module exports the JSHint plugin linter class."""
+"""This module exports the scss-lint plugin linter class."""
 
 import os
 from SublimeLinter.lint import Linter, util
