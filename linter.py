@@ -18,23 +18,15 @@ class Scss(Linter):
 
     """Provides an interface to the scss-lint executable."""
 
-    syntax = ('sass', 'scss')
-    executable = 'scss-lint'
-    regex = r'^.+?:(?P<line>\d+) (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>.+)'
-    # cmd = 'scss-lint'
+    syntax = ['sass', 'scss']
+    cmd = 'scss-lint'
+    regex = r'^.+?:(?P<line>\d+) (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
+    tempfile_suffix = 'scss'
+    defaults = {
+        '--include-linter:,': '',
+        '--exclude-linter:,': ''
+    }
+    inline_overrides = ('include-linter', 'exclude-linter')
+    comment_re = r'^\s*/[/\*]'
 
-    def cmd(self):
-        """
-        Return a string with the command line to execute.
-
-        We define this method because we want to use the .scsslintrc files,
-        and we can't rely on scss-lint to find them, because we are using stdin.
-        """
-
-        command = [self.executable_path]
-        scsslintrc = util.find_file(os.path.dirname(self.filename), '.scss-lint.yml')
-
-        if scsslintrc:
-            command += ['--config', scsslintrc]
-
-        return command + ['@']
+    config_file = ('--config', '.scss-lint.yml', '~')
