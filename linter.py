@@ -28,5 +28,4 @@ class Scss(Linter):
     }
     inline_overrides = ('include-linter', 'exclude-linter')
     comment_re = r'^\s*/[/\*]'
-
     config_file = ('--config', '.scss-lint.yml', '~')
