@@ -38,6 +38,7 @@ In addition to the standard SublimeLinter settings, SublimeLinter-scss-lint prov
 
 |Setting|Description|Inline Setting|Inline Override|
 |:------|:----------|:------------:|:-------------:|
+|bundle-exec|runs scss-lint as "bundle exec scss-lint" instead of "scss-lint"| | |
 |--include-linter|Specify which linters you specifically want to run| |&#10003;|
 |--exclude-linter|Specify which linters you don't want to run| |&#10003;|
 
