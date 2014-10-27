@@ -11,14 +11,14 @@
 """This module exports the scss-lint plugin linter class."""
 
 import os
-from SublimeLinter.lint import Linter, util
+from SublimeLinter.lint import RubyLinter, util
 
 
-class Scss(Linter):
+class Scss(RubyLinter):
 
     """Provides an interface to the scss-lint executable."""
 
-    syntax = ['sass', 'scss']
+    syntax = ('sass', 'scss')
     executable = 'scss-lint'
     regex = r'^.+?:(?P<line>\d+) (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
     tempfile_suffix = 'scss'
@@ -32,5 +32,5 @@ class Scss(Linter):
 
     def cmd(self):
         if self.get_view_settings().get('bundle-exec', False):
-            return ['bundle', 'exec', self.executable]
-        return [self.executable_path]
+            return ('bundle', 'exec', self.executable)
+        return (self.executable_path)
