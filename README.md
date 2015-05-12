@@ -13,7 +13,7 @@ Before installing this plugin, you must ensure that `scss-lint` is installed on 
 
 2. Install `scss-lint` by typing the following in a terminal:
    ```
-   gem install scss-lint
+   gem install scss_lint
    ```
 
 3. If you are using `rvm` or `rbenv`, ensure that they are loaded in your shell’s correct startup file. See [here](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#shell-startup-files) for more information.
@@ -32,7 +32,7 @@ To install via Package Control, do the following:
 ## Settings
 For general information on how SublimeLinter works with settings, please see [Settings](http://sublimelinter.readthedocs.org/en/latest/settings.html). For information on generic linter settings, please see [Linter Settings](http://sublimelinter.readthedocs.org/en/latest/linter_settings.html).
 
-You can configure `scss-lint` options in the way you would from the command line, with `.scss-lint.yml` files. If a `.scss-lint.yml` file is not found in the file hierarchy starting with the linted file, your home directory will also be searched. For more information, see the [scss-lint page](https://github.com/causes/scss-lint). Default configuration file can be found [here](https://github.com/causes/scss-lint/blob/master/config/default.yml).
+You can configure `scss-lint` options in the way you would from the command line, with `.scss-lint.yml` files. If a `.scss-lint.yml` file is not found in the file hierarchy starting with the linted file, your home directory will also be searched. For more information, see the [scss-lint page](https://github.com/brigade/scss-lint). Default configuration file can be found [here](https://github.com/brigade/scss-lint/blob/master/config/default.yml).
 
 In addition to the standard SublimeLinter settings, SublimeLinter-scss-lint provides its own settings. Those marked as “Inline Setting” or “Inline Override” may also be [used inline](http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings).
 
