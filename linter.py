@@ -19,7 +19,7 @@ class Scss(RubyLinter):
     """Provides an interface to the scss-lint executable."""
 
     syntax = ('css', 'sass', 'scss')
-    executable = 'scss-lint'
+    cmd = 'ruby -S scss-lint'
     regex = r'^.+?:(?P<line>\d+) (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
     tempfile_suffix = 'scss'
     defaults = {
@@ -29,8 +29,3 @@ class Scss(RubyLinter):
     inline_overrides = ('bundle-exec', 'include-linter', 'exclude-linter')
     comment_re = r'^\s*/[/\*]'
     config_file = ('--config', '.scss-lint.yml', '~')
-
-    def cmd(self):
-        if self.get_view_settings().get('bundle-exec', False):
-            return ('bundle', 'exec', self.executable)
-        return (self.executable_path)
