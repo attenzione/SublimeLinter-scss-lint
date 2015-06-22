@@ -18,7 +18,7 @@ class Scss(RubyLinter):
 
     """Provides an interface to the scss-lint executable."""
 
-    syntax = ('sass', 'scss')
+    syntax = ('css', 'sass', 'scss')
     executable = 'scss-lint'
     regex = r'^.+?:(?P<line>\d+) (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
     tempfile_suffix = 'scss'
