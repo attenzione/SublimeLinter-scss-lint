@@ -20,7 +20,7 @@ class Scss(RubyLinter):
 
     syntax = ('css', 'sass', 'scss')
     cmd = 'ruby -S scss-lint'
-    regex = r'^.+?:(?P<line>\d+) (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
+    regex = r'^.+?:(?P<line>\d+)(?::(?P<column>\d+))? (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
     tempfile_suffix = 'scss'
     defaults = {
         '--include-linter:,': '',
