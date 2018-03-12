@@ -1,0 +1,13 @@
+SublimeLinter-scss-lint 3.0.0
+-----------------------------
+
+* Fixes compatibility with SublimeLinter 4
+
+
+** New Configuration Options **
+
+To override the config file path, you would add this to the Sublime Linter User Settings:
+
+"scsslint": {
+    "args": ["--config", "path/to/config.yml"]
+}
