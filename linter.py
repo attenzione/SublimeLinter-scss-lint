@@ -42,8 +42,13 @@ class ScssLint(RubyLinter):
           # return the same when 'near' is None
           # linter.py:978
           match = self.word_re.search(text) if self.word_re else None
-          length = len(match.group()) if match else 1
-          return line, match.start(), match.start() + length
+          if match:
+            start = match.start()
+            length = len(match.group())
+          else:
+            start = 1
+            length = len(text) - 1
+          return line, start, start + length
 
         # SelectorFormat return column 1, which is incorrect
         elif rule_name == 'SelectorFormat':
