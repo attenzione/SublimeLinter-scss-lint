@@ -22,19 +22,21 @@ class ScssLint(RubyLinter):
 
     """Provides an interface to the scss-lint executable."""
 
+    syntax = ('css', 'sass', 'scss')
     cmd = ('ruby', '-S', 'scss-lint', '${args}', '${file}')
     regex = r'^.+?:(?P<line>\d+)(?::(?P<col>\d+))? (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
     word_re = r'[^\s]+[\w]'
     defaults = {
-        'selector': 'source.css - meta.attribute-with-value, source.sass, source.scss'
+
     }
 
     def reposition_match(self, line, col, m, vv):
+      text = vv.select_line(m.line)
+      rule_match = re.search(RULE_RE, m.message)
+      rule_name = rule_match.group() if rule_match else None
+
       if col != None and m.near:
-        text = vv.select_line(m.line)
         near = self.strip_quotes(m.near)
-        rule_match = re.search(RULE_RE, m.message)
-        rule_name = rule_match.group() if rule_match else None
 
         # PseudoElement rule return incorrect 'near' string
         if rule_name == 'PseudoElement':
@@ -54,5 +56,10 @@ class ScssLint(RubyLinter):
           real_col = text.find(near)
           if real_col >= 0 and real_col != col:
             return super().reposition_match(line, real_col, m, vv)
+
+      if rule_name == 'Indentation':
+        match = re.search(r'^([\s\t]+)', text)
+        if match:
+          return line, 0, len(match.group())
 
       return super().reposition_match(line, col, m, vv)
