@@ -22,12 +22,11 @@ class ScssLint(RubyLinter):
 
     """Provides an interface to the scss-lint executable."""
 
-    syntax = ('css', 'sass', 'scss')
     cmd = ('ruby', '-S', 'scss-lint', '${args}', '${file}')
     regex = r'^.+?:(?P<line>\d+)(?::(?P<col>\d+))? (?:(?P<error>\[E\])|(?P<warning>\[W\])) (?P<message>[^`]*(?:`(?P<near>.+?)`)?.*)'
     word_re = r'[^\s]+[\w]'
     defaults = {
-
+      'selector': 'source.scss'
     }
 
     def reposition_match(self, line, col, m, vv):
