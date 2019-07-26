@@ -1,7 +1,12 @@
+# NOTICE: Consider other tools before adopting SCSS-Lint
+Please see [scss-lint end of life](https://github.com/sds/scss-lint#notice-consider-other-tools-before-adopting-scss-lint) notice.
+
+I recommend to migrate your project linting to [stylelint](https://github.com/SublimeLinter/SublimeLinter-stylelint).
+
 SublimeLinter-scss-lint
 =========================
 
-This linter plugin for [SublimeLinter](http://www.sublimelinter.com/en/stable/index.html) provides an interface to the [scss-lint](https://github.com/causes/scss-lint). It will be used with files that have the **CSS**, **SASS** and **SCSS** syntax.
+This linter plugin for [SublimeLinter](http://www.sublimelinter.com/en/stable/index.html) provides an interface to the [scss-lint](https://github.com/sds/scss-lint). It will be used with files that have the **CSS**, **SASS** and **SCSS** syntax.
 
 ## Installation
 SublimeLinter 4 must be installed in order to use this plugin. If SublimeLinter 4 is not installed, please follow the instructions [here](http://www.sublimelinter.com/en/stable/).
